@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+### Scrapy Service #########################################
+  scrapy:
+    image: franten/scrapy
+    build:
+      context: ./scrapy
+      args:
+        - SCRAPY_APP_PATH=${SCRAPY_APP_PATH}
+    volumes:
+        - ./scrapy/app:/usr/src/app
+    tty: true
+
+### Volumes ##################################################
+# volumes:
+
+### Networks #################################################
+# networks: 
