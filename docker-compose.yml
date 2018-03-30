@@ -10,11 +10,18 @@ services:
       args:
         - SCRAPY_APP_PATH=${SCRAPY_APP_PATH}
     volumes:
-        - ./scrapy/app:/usr/src/app
-    tty: true
+        - ../scrapy/biopharm:/usr/src/app
+    ports:
+        - "6800:6800"
+    networks:
+        - backend
 
 ### Volumes ##################################################
 # volumes:
 
 ### Networks #################################################
-# networks: 
+networks: 
+  # frontend:
+  #   driver: "bridge"
+  backend:
+    driver: "bridge"
