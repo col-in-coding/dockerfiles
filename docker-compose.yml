@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-### Scrapy Service #########################################
+### Scrapy Service ###########################################
   scrapy:
     image: franten/scrapy
     build:
@@ -16,8 +16,23 @@ services:
     networks:
         - backend
 
+### Postgres Service #########################################
+  postgres:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=franten
+      - POSTGRES_PASSWORD=mypasswd
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks: 
+      - backend
+
 ### Volumes ##################################################
-# volumes:
+volumes:
+  postgres-db:
+
 
 ### Networks #################################################
 networks: 
