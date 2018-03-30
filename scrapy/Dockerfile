@@ -1,4 +1,3 @@
-# Use an official Python runtime as a parent image
 FROM alpine:3.7
 
 RUN apk update
